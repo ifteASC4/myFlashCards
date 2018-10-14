@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/flashcard_question"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/card_background"
+        android:elevation="20dp"
+        android:gravity="center"
+        android:text="Who is the 44th President of the United States?"
+        android:textColor="#000000"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/flashcard_answer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignStart="@+id/flashcard_question"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="#A4A0FF"
+        android:gravity="center"
+        android:text="Barack Obama"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/choice1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="10dp"
+        android:background="#A4A0FF"
+        android:gravity="center"
+        android:text="Donald J. Trump"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/choice2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="10dp"
+        android:background="#A4A0FF"
+        android:gravity="center"
+        android:text="Barack Obama"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/choice3"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/flashcard_question"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="10dp"
+        android:background="#A4A0FF"
+        android:gravity="center"
+        android:text="Hilliary Clinton"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/show_answers"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:src="@drawable/ic_eye" />
+
+    <ImageView
+        android:id="@+id/hide_answers"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:src="@drawable/ic_dash_eye"
+        android:visibility="invisible" />
+</RelativeLayout>
