@@ -18,3 +18,5 @@
 - [x] Add a button that will toggle hiding and showing the answer choices
 
 <img src="http://g.recordit.co/N4fQGSnGDG.gif" width="200" height="400" />
+
+## Lab 2:
