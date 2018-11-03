@@ -6,7 +6,7 @@
 Simple flash card app that allows user to see a flash card that has a question and has to decide between 3 answer choices. So far the user can create a new card and input a new question and 3 new answer choices. However. the edit button is not working yet and more features will soon be added.
 
 ### App Walk-though
-<img src="http://recordit.co/093AQStVYY" width=200><br>
+<img src="http://g.recordit.co/093AQStVYY.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
