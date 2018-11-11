@@ -7,28 +7,43 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.flashcard_question).setVisibility(View.INVISIBLE);
-                findViewById(R.id.flashcard_answer).setVisibility(View.VISIBLE);
-            }
-        });
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+        allFlashcards = flashcardDatabase.getAllCards();
 
-        findViewById(R.id.flashcard_answer).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.flashcard_question).setVisibility(View.VISIBLE);
-                findViewById(R.id.flashcard_answer).setVisibility(View.INVISIBLE);
-            }
-        });
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.choice2)).setText(allFlashcards.get(0).getAnswer());
+            ((TextView) findViewById(R.id.choice1)).setText(allFlashcards.get(0).getWrongAnswer1());
+            ((TextView) findViewById(R.id.choice3)).setText(allFlashcards.get(0).getWrongAnswer2());
+        }
+
+//        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                findViewById(R.id.flashcard_question).setVisibility(View.INVISIBLE);
+//                findViewById(R.id.flashcard_answer).setVisibility(View.VISIBLE);
+//            }
+//        });
+
+//        findViewById(R.id.flashcard_answer).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                findViewById(R.id.flashcard_question).setVisibility(View.VISIBLE);
+//                findViewById(R.id.flashcard_answer).setVisibility(View.INVISIBLE);
+//            }
+//        });
 
         findViewById(R.id.choice1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
             String string4 = data.getExtras().getString("wrong2");
 
             // set text view with string
+
+//            ((TextView) findViewById(R.id.flashcard_question)).setText(string1); (another example way)
+
             TextView newText = findViewById(R.id.flashcard_question);
             newText.setText(string1);
             TextView newText2 = findViewById(R.id.choice1);
@@ -119,6 +137,11 @@ public class MainActivity extends AppCompatActivity {
             newText3.setText(string2);
             TextView newText4 = findViewById(R.id.choice3);
             newText4.setText(string4);
+
+            flashcardDatabase.insertCard(new Flashcard(string1, string2, string3, string4));
+            allFlashcards = flashcardDatabase.getAllCards();
+
+//            http://localhost:8080/# (url)
         }
     }
 }
